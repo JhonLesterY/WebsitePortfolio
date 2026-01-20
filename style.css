@@ -233,3 +233,30 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
         padding: 25px;
     }
 }
+
+.stats-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.stat-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+}
+
+.stat-number {
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: var(--accent);
+}
