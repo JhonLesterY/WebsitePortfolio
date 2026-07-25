@@ -39,10 +39,22 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 .nav-flex { display: flex; justify-content: space-between; align-items: center; }
 .logo { font-weight: 800; font-size: 1.4rem; }
 .logo .dot { color: var(--accent); }
-.nav-links { list-style: none; display: flex; gap: 25px; align-items: center; }
-.nav-links a { font-size: 0.85rem; color: var(--text-muted); font-family: var(--font-mono); }
+.nav-links { list-style: none; display: flex; gap: clamp(12px, 2vw, 25px); align-items: center; }
+.nav-links a { font-size: 0.85rem; color: var(--text-muted); font-family: var(--font-mono); white-space: nowrap; }
 .nav-links a:hover { color: white; }
-.btn-hire { background: white; color: black !important; padding: 8px 18px; border-radius: 30px; font-weight: 600; }
+.btn-hire { background: white; color: black !important; padding: 8px 18px; border-radius: 30px; font-weight: 600; white-space: nowrap; }
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1.3rem;
+    cursor: pointer;
+    padding: 6px 10px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+.nav-toggle:hover { color: var(--accent); }
 
 /* --- 3. HERO --- */
 .hero { height: 100vh; display: flex; align-items: center; position: relative; }
@@ -136,15 +148,7 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 .footer-socials a:hover { color: var(--accent); }
 .copyright { margin-top: 80px; font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); }
 
-/* --- 8. RESPONSIVE --- */
-@media (max-width: 900px) {
-    .bento-grid { grid-template-columns: 1fr; }
-    .box-wide, .portrait-box { grid-column: span 1; grid-row: auto; }
-    .portrait-box { height: 400px; }
-    .gallery-grid { grid-template-columns: 1fr; }
-    .wide-item { aspect-ratio: 16/10; }
-    .modal-content { height: 75vh; border-radius: 20px; }
-}
+/* --- 8. RESPONSIVE STYLES (See bottom of file) --- */
 
 /* --- PROJECTS GRID --- */
 .projects-grid {
@@ -224,15 +228,7 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
     border-color: var(--text-main);
 }
 
-/* Mobile Fixes */
-@media (max-width: 600px) {
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-    .project-card {
-        padding: 25px;
-    }
-}
+
 
 .stats-box {
     display: flex;
@@ -332,4 +328,140 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 
 .exp-list strong {
     color: var(--text-main);
+}
+
+/* --- 8. COMPREHENSIVE RESPONSIVE STYLES --- */
+@media (max-width: 900px) {
+    .bento-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    .box-wide, .portrait-box {
+        grid-column: span 1;
+        grid-row: auto;
+    }
+    .portrait-box {
+        height: 380px;
+    }
+    .gallery-grid, .projects-grid, .experience-grid {
+        grid-template-columns: 1fr;
+    }
+    .wide-item {
+        aspect-ratio: 16/10;
+    }
+    .modal-content {
+        height: 80vh;
+        border-radius: 20px;
+    }
+}
+
+@media (max-width: 992px) {
+    .container {
+        padding: 0 16px;
+    }
+    .navbar {
+        top: 15px;
+        width: 92%;
+        padding: 10px 20px;
+        border-radius: 30px;
+    }
+    .nav-toggle {
+        display: block;
+    }
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: calc(100% + 12px);
+        left: 0;
+        right: 0;
+        background: rgba(12, 12, 12, 0.95);
+        backdrop-filter: blur(25px);
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        flex-direction: column;
+        padding: 24px 20px;
+        gap: 16px;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+        z-index: 1000;
+    }
+    .nav-links.active {
+        display: flex;
+    }
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+    }
+    .nav-links a {
+        font-size: 1rem;
+        display: block;
+        padding: 8px 0;
+    }
+    .btn-hire {
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .hero {
+        min-height: 100vh;
+        height: auto;
+        padding-top: 110px;
+        padding-bottom: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .hero-text h1 {
+        font-size: clamp(2.2rem, 10vw, 4.2rem);
+    }
+    .hero-footer {
+        position: relative;
+        bottom: auto;
+        margin-top: 40px;
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: center;
+        text-align: center;
+    }
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    .bio-box h2 {
+        font-size: 1.6rem;
+    }
+    .stack-grid {
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        gap: 10px;
+    }
+    .cert-link {
+        padding: 12px 16px;
+    }
+    .cert-title {
+        font-size: 0.85rem;
+        word-break: break-word;
+    }
+    .project-card, .exp-card, .box {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .portrait-box {
+        height: 300px;
+    }
+    .hero-text h1 {
+        font-size: 2.1rem;
+    }
+    .tagline {
+        font-size: 0.72rem;
+    }
+    .stack-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .huge-email {
+        font-size: 1.7rem;
+        word-break: break-word;
+    }
 }

@@ -18,7 +18,10 @@
   <nav class="navbar">
     <div class="container nav-flex">
       <div class="logo">JLY<span class="dot">.</span></div>
-      <ul class="nav-links">
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-links" id="navLinks">
         <li><a href="#bento">Studio</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#projects">Code</a></li>
@@ -266,7 +269,7 @@
     <div class="container">
       <div class="footer-wrapper">
         <h2>Let's make something <br> <span class="highlight">unforgettable.</span></h2>
-        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ybanezlester250@gmail.com" target="_blank" class="huge-email">Get in touch &rarr;</a>
+        <a href="mailto:ybanezlester250@gmail.com" class="huge-email">Get in touch &rarr;</a>
         
         <div class="footer-socials">
            <a href="https://www.facebook.com/lester.ybanez.925" target="_blank">Fb.</a>
@@ -294,6 +297,35 @@
   </div>
 
   <script>
+    // Mobile Nav Toggle
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    if (navToggle && navLinks) {
+      navToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        const icon = navToggle.querySelector('i');
+        if (navLinks.classList.contains('active')) {
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-times');
+        } else {
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      });
+
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('active');
+          const icon = navToggle.querySelector('i');
+          if (icon) {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+          }
+        });
+      });
+    }
+
     function openModal(pdfPath, title) {
         const modal = document.getElementById('certModal');
         const frame = document.getElementById('modalFrame');
