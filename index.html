@@ -26,6 +26,7 @@
       <ul class="nav-links">
         <li><a href="#bento">Studio</a></li>
         <li><a href="#experience">Experience</a></li>
+        <li><a href="#va-works">VA Works</a></li>
         <li><a href="#projects">Code</a></li>
         <li><a href="#works">Works</a></li>
         <li><a href="#contact" class="btn-hire">Let's Talk</a></li>
@@ -197,6 +198,100 @@
     </div>
   </section>
 
+  <!-- ===== VA SAMPLE WORKS SECTION ===== -->
+  <section id="va-works" class="section-padding">
+    <div class="container">
+      <div class="section-header">
+        <h2>VA Sample Works <span class="count">// Virtual Assistant</span></h2>
+        <span class="section-note">Proof of work &mdash; real deliverables</span>
+      </div>
+
+      <div class="va-works-grid">
+
+        <!-- Calendar Management Sample (unified with toggle) -->
+        <div class="va-work-card featured-work">
+          <div class="va-work-header">
+            <div class="va-work-tag"><i class="fas fa-calendar-alt"></i> Calendar Management</div>
+            <div class="va-work-badge">Live Sample</div>
+          </div>
+
+          <!-- Screenshot Toggle Tabs -->
+          <div class="screenshot-tabs">
+            <button class="shot-tab active" onclick="switchShot(0, this)" id="tab-0">
+              <i class="fas fa-th"></i> Week View
+            </button>
+            <button class="shot-tab" onclick="switchShot(1, this)" id="tab-1">
+              <i class="fas fa-calendar-check"></i> Event Detail
+            </button>
+          </div>
+
+          <!-- Screenshot Viewer -->
+          <div class="va-work-screenshots" id="calScreenshot"
+            onclick="openImgModal(calShots[activeShot], calTitles[activeShot])">
+            <img src="assets/Sample Works/Screenshot (2559).png" alt="Executive Calendar" class="va-screenshot" id="calImg">
+            <div class="screenshot-overlay"><i class="fas fa-expand-alt"></i> View Full</div>
+          </div>
+
+          <div class="va-work-info">
+            <h3 class="va-work-title">Executive Calendar Management</h3>
+            <p class="va-work-desc">Structured and managed a full executive's weekly calendar using Google Calendar — including deep work blocks, team syncs, investor calls, 1:1s, and buffer transitions. Each event is created with clear titles, context descriptions, and attendee info, and is color-coded by category for at-a-glance clarity.</p>
+            <div class="va-work-tags">
+              <span><i class="fab fa-google"></i> Google Calendar</span>
+              <span><i class="fas fa-clock"></i> Time Blocking</span>
+              <span><i class="fas fa-users"></i> Executive Support</span>
+              <span><i class="fas fa-sticky-note"></i> Structured Event Entries</span>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Placeholder: Coming Soon 1 -->
+        <div class="va-work-card va-placeholder">
+          <div class="placeholder-inner">
+            <div class="placeholder-icon"><i class="fas fa-inbox"></i></div>
+            <h3>Email & Inbox Management</h3>
+            <p>Sample of organized client inbox, email drafting, and priority filtering — coming soon.</p>
+            <span class="coming-soon-tag">// Coming Soon</span>
+          </div>
+        </div>
+
+        <!-- Placeholder: Coming Soon 2 -->
+        <div class="va-work-card va-placeholder">
+          <div class="placeholder-inner">
+            <div class="placeholder-icon"><i class="fas fa-tasks"></i></div>
+            <h3>Task & Project Tracking</h3>
+            <p>Notion or Trello board setup for client project management and daily task delegation — coming soon.</p>
+            <span class="coming-soon-tag">// Coming Soon</span>
+          </div>
+        </div>
+
+        <!-- Placeholder: Coming Soon 3 -->
+        <div class="va-work-card va-placeholder">
+          <div class="placeholder-inner">
+            <div class="placeholder-icon"><i class="fas fa-file-alt"></i></div>
+            <h3>Document & Report Prep</h3>
+            <p>Samples of official memos, meeting agendas, and executive briefing documents — coming soon.</p>
+            <span class="coming-soon-tag">// Coming Soon</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Image Lightbox Modal -->
+  <div id="imgModal" class="modal-overlay img-modal-overlay" onclick="closeImgModal()">
+    <div class="img-modal-content" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <h3 id="imgModalTitle">// Sample Preview</h3>
+        <button class="close-modal" onclick="closeImgModal()">&times;</button>
+      </div>
+      <div class="img-modal-body">
+        <img id="imgModalSrc" src="" alt="Sample Work Preview">
+      </div>
+    </div>
+  </div>
+
   <section id="projects" class="section-padding">
     <div class="container">
       <div class="section-header">
@@ -318,6 +413,44 @@
   </div>
 
   <script>
+    // Screenshot toggle for Calendar Management card
+    const calShots = [
+      'assets/Sample Works/Screenshot (2559).png',
+      'assets/Sample Works/Screenshot (2560).png'
+    ];
+    const calTitles = [
+      'Executive Calendar Management — Week View',
+      'Event Detail — Created by Jhon Lester Ybañez'
+    ];
+    let activeShot = 0;
+
+    function switchShot(index, btn) {
+      activeShot = index;
+      const img = document.getElementById('calImg');
+      img.style.opacity = '0';
+      setTimeout(() => {
+        img.src = calShots[index];
+        img.style.opacity = '1';
+      }, 180);
+      document.querySelectorAll('.shot-tab').forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    // Image Lightbox
+    function openImgModal(src, title) {
+      const modal = document.getElementById('imgModal');
+      document.getElementById('imgModalSrc').src = src;
+      document.getElementById('imgModalTitle').innerText = '// ' + title;
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+    function closeImgModal() {
+      const modal = document.getElementById('imgModal');
+      modal.style.display = 'none';
+      document.getElementById('imgModalSrc').src = '';
+      document.body.style.overflow = 'auto';
+    }
+
     function openModal(pdfPath, title) {
       const modal = document.getElementById('certModal');
       const frame = document.getElementById('modalFrame');
