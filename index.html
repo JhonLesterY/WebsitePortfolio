@@ -6,10 +6,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jhon Lester Ybanez | Virtual Executive Assistant & IT Specialist</title>
   <meta name="description"
-    content="Portfolio of Jhon Lester Ybanez - Virtual Executive Assistant, Digital Operations & IT Specialist.">
+    content="Portfolio of Jhon Lester Ybanez - Virtual Executive Assistant, Digital Operations & IT Specialist based in Bukidnon, PH. Available for remote work worldwide.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23080808'/><text y='72' x='50' text-anchor='middle' font-size='58' font-family='sans-serif' font-weight='900' fill='%23ff5500'>JLY</text></svg>">
+
+  <!-- Open Graph / Social Preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jhonlestery.github.io/WebsitePortfolio/">
+  <meta property="og:title" content="Jhon Lester Ybanez | Virtual Executive Assistant">
+  <meta property="og:description" content="Detail-oriented Virtual Executive Assistant skilled in calendar management, digital workflow automation, and remote operations. Open for remote roles worldwide.">
+  <meta property="og:image" content="https://jhonlestery.github.io/WebsitePortfolio/assets/images/Display Picture.jpg">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="Jhon Lester Ybanez | Virtual Executive Assistant">
+  <meta property="twitter:description" content="Detail-oriented VA skilled in calendar management, digital operations & remote admin support.">
+  <meta property="twitter:image" content="https://jhonlestery.github.io/WebsitePortfolio/assets/images/Display Picture.jpg">
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
 
   <link rel="stylesheet" href="style.css">
-
   <link
     href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
     rel="stylesheet">
@@ -20,17 +36,33 @@
 
   <div class="noise-overlay"></div>
 
+  <!-- Loading Screen -->
+  <div id="loader">
+    <div class="loader-logo">JLY<span class="dot">.</span></div>
+    <div class="loader-bar-track"><div class="loader-bar"></div></div>
+  </div>
+
+  <!-- Custom Cursor -->
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- Back to Top -->
+  <button id="back-top" class="back-to-top" title="Back to top"><i class="fas fa-arrow-up"></i></button>
+
   <nav class="navbar">
     <div class="container nav-flex">
       <div class="logo">JLY<span class="dot">.</span></div>
       <ul class="nav-links">
         <li><a href="#bento">Studio</a></li>
-        <li><a href="#experience">Experience</a></li>
+        <li><a href="#services">Services</a></li>
         <li><a href="#va-works">VA Works</a></li>
-        <li><a href="#projects">Code</a></li>
         <li><a href="#works">Works</a></li>
+        <li><a href="#faq">FAQ</a></li>
         <li><a href="#contact" class="btn-hire">Let's Talk</a></li>
       </ul>
+      <button class="theme-toggle" id="theme-toggle" title="Toggle dark/light mode">
+        <i class="fas fa-sun"></i>
+      </button>
     </div>
   </nav>
 
@@ -42,11 +74,11 @@
           <p class="tagline"><i class="fas fa-circle-notch fa-spin"></i> Open for Executive Assistant Roles</p>
         </div>
         <h1>EXECUTIVE<br><span class="outline-text">ASSISTANT</span></h1>
-        <p class="role-scroller">
-          <span>// Virtual Executive Assistant</span>
-          <span>// Digital Operations & Admin</span>
-          <span>// IT & Multimedia Specialist</span>
-        </p>
+        <p class="role-scroller">// <span id="typewriter"></span><span class="cursor-blink">|</span></p>
+        <div class="hero-badges">
+          <span class="avail-badge"><i class="fas fa-circle"></i> Available &nbsp;&middot;&nbsp; GMT+8 &nbsp;&middot;&nbsp; Mon&ndash;Fri</span>
+          <span class="lang-badge"><i class="fas fa-language"></i> English &nbsp;&middot;&nbsp; Filipino</span>
+        </div>
       </div>
 
       <div class="hero-footer">
@@ -65,7 +97,7 @@
 
       <div class="bento-grid">
         <div class="box portrait-box">
-          <img src="assets/images/Lester Ybanez Profile.jpg" alt="Jhon Lester Ybanez" class="portrait-img">
+          <img src="assets/images/Lester Ybanez Profile.jpg" alt="Jhon Lester Ybanez" class="portrait-img" loading="lazy">
           <div class="location-tag"><i class="fas fa-map-marker-alt"></i> Bukidnon, PH</div>
         </div>
 
@@ -148,6 +180,43 @@
     </div>
   </section>
 
+  <!-- ===== WHY HIRE ME ===== -->
+  <section id="why-me" class="section-padding">
+    <div class="container">
+      <div class="section-header">
+        <h2>Why Hire Me <span class="count">// Value</span></h2>
+        <span class="section-note">See the difference a VA makes</span>
+      </div>
+      <div class="why-grid">
+        <div class="why-col without-col">
+          <div class="why-col-header"><i class="fas fa-times-circle"></i> Without a VA</div>
+          <ul class="why-list">
+            <li>Drowning in scheduling conflicts and missed meetings</li>
+            <li>Hours lost on inbox management and repetitive tasks</li>
+            <li>No time to focus on high-value decisions</li>
+            <li>Disorganized files, delayed reports, communication gaps</li>
+            <li>Working overtime just to keep up with operations</li>
+          </ul>
+        </div>
+        <div class="why-divider"><div class="why-vs">VS</div></div>
+        <div class="why-col with-col">
+          <div class="why-col-header"><i class="fas fa-check-circle"></i> With Jhon Lester</div>
+          <ul class="why-list">
+            <li>Calendar structured, meetings prepped, nothing slips through</li>
+            <li>Inbox triaged, responses handled, tasks delegated</li>
+            <li>You focus on decisions &mdash; I handle the execution</li>
+            <li>Everything organized, documented, and easily retrievable</li>
+            <li>More hours back in your day, every single week</li>
+          </ul>
+        </div>
+      </div>
+      <div class="why-cta">
+        <span class="why-rate">Starting at <strong>$5&ndash;$6 / hr</strong></span>
+        <a href="#contact" class="btn-hire" style="text-decoration:none;">Get Started &rarr;</a>
+      </div>
+    </div>
+  </section>
+
   <section id="experience" class="section-padding">
     <div class="container">
       <div class="section-header">
@@ -193,6 +262,91 @@
             <li><strong>Time Management:</strong> Consistently met tight weekly production deadlines over a 3-year
               period through disciplined planning.</li>
           </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES ===== -->
+  <section id="services" class="section-padding">
+    <div class="container">
+      <div class="section-header">
+        <h2>Services <span class="count">// What I Offer</span></h2>
+        <span class="section-note">$5&ndash;$6 / hour &nbsp;&middot;&nbsp; Remote Worldwide</span>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-calendar-alt"></i></div>
+          <h3>Calendar Management</h3>
+          <p>Full executive calendar setup, time blocking, event scheduling, buffer times, and meeting coordination across time zones.</p>
+          <div class="service-tools"><span>Google Calendar</span><span>Outlook</span></div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-inbox"></i></div>
+          <h3>Email &amp; Inbox Management</h3>
+          <p>Inbox triaging, priority filtering, professional email drafting, auto-reply setup, and folder organization.</p>
+          <div class="service-tools"><span>Gmail</span><span>Outlook</span></div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-tasks"></i></div>
+          <h3>Task &amp; Project Coordination</h3>
+          <p>Setting up task boards, tracking deadlines, following up on deliverables, and keeping projects on schedule.</p>
+          <div class="service-tools"><span>Notion</span><span>Trello</span><span>Asana</span></div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-file-alt"></i></div>
+          <h3>Document &amp; Report Prep</h3>
+          <p>Creating meeting agendas, executive summaries, official memos, slide decks, and well-structured reports.</p>
+          <div class="service-tools"><span>Google Docs</span><span>MS Word</span><span>Canva</span></div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-bullhorn"></i></div>
+          <h3>Digital &amp; Social Operations</h3>
+          <p>Content scheduling, digital file management, community management, and workflow automation across online platforms.</p>
+          <div class="service-tools"><span>Meta Suite</span><span>Buffer</span><span>Canva</span></div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-search"></i></div>
+          <h3>Research &amp; Admin Support</h3>
+          <p>Internet research, data entry, vendor comparison, lead tracking, and general administrative assistance.</p>
+          <div class="service-tools"><span>Google Suite</span><span>Notion</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS ===== -->
+  <section id="skills" class="section-padding">
+    <div class="container">
+      <div class="section-header">
+        <h2>Tool Proficiency <span class="count">// Skills</span></h2>
+      </div>
+      <div class="skills-layout">
+        <div class="skills-bars">
+          <div class="skill-row"><div class="skill-label"><i class="fab fa-google"></i> Google Suite</div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="95"></div></div><span class="skill-pct">95%</span></div>
+          <div class="skill-row"><div class="skill-label"><i class="fas fa-calendar-alt"></i> Calendar Management</div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="95"></div></div><span class="skill-pct">95%</span></div>
+          <div class="skill-row"><div class="skill-label"><i class="fas fa-file-alt"></i> MS Office Suite</div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="88"></div></div><span class="skill-pct">88%</span></div>
+          <div class="skill-row"><div class="skill-label"><i class="fas fa-tasks"></i> Notion / Trello</div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="85"></div></div><span class="skill-pct">85%</span></div>
+          <div class="skill-row"><div class="skill-label"><i class="fas fa-palette"></i> Canva &amp; Design</div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="90"></div></div><span class="skill-pct">90%</span></div>
+          <div class="skill-row"><div class="skill-label"><i class="fas fa-bullhorn"></i> Meta Business Suite</div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="80"></div></div><span class="skill-pct">80%</span></div>
+          <div class="skill-row"><div class="skill-label"><i class="fas fa-video"></i> Zoom &amp; Video Tools</div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="85"></div></div><span class="skill-pct">85%</span></div>
+        </div>
+        <div class="skills-side">
+          <div class="lang-card">
+            <div class="box-tag">LANGUAGES</div>
+            <div class="lang-item"><span class="lang-name">English</span><span class="lang-level">Professional</span></div>
+            <div class="lang-item"><span class="lang-name">Filipino</span><span class="lang-level">Native</span></div>
+          </div>
+          <div class="avail-card">
+            <div class="box-tag">AVAILABILITY</div>
+            <div class="avail-status"><span class="status-dot"></span> Available for hire</div>
+            <div class="avail-details">
+              <div><i class="fas fa-clock"></i> GMT+8 (PHT)</div>
+              <div><i class="fas fa-calendar"></i> Mon &ndash; Fri</div>
+              <div><i class="fas fa-globe"></i> Remote Worldwide</div>
+            </div>
+            <div class="avail-rate">$5 &ndash; $6 / hour</div>
+          </div>
         </div>
       </div>
     </div>
@@ -345,7 +499,7 @@
         <a href="https://www.canva.com/design/DAG-6xlEbVc/zvaT-lU93vCRi5Wt0VgFFw/edit?utm_content=DAG-6xlEbVc&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
           target="_blank" class="gallery-item">
           <div class="tool-badge"><i class="fas fa-palette"></i> Canva</div>
-          <img src="assets/images/BANSAGEN AWARDS 2025.png" alt="Bansagen Awards">
+          <img src="assets/images/BANSAGEN AWARDS 2025.png" alt="Bansagen Awards" loading="lazy">
           <div class="gallery-overlay">
             <div class="overlay-content">
               <span class="category-tag">Technical Committee</span>
@@ -356,7 +510,7 @@
         </a>
 
         <a href="https://www.facebook.com/share/p/1Fs4jnnRsN/" target="_blank" class="gallery-item">
-          <img src="assets/images/SK Appreciation Post.jpg" alt="Social Campaign">
+          <img src="assets/images/SK Appreciation Post.jpg" alt="Social Campaign" loading="lazy">
           <div class="gallery-overlay">
             <div class="overlay-content">
               <span class="category-tag">Partnership</span>
@@ -367,7 +521,7 @@
         </a>
 
         <a href="https://www.facebook.com/share/v/1N7Qk1o4hG/" target="_blank" class="gallery-item wide-item">
-          <img src="assets/images/AmbisyonNatin2040_about.png" alt="Ambisyon Natin 2040">
+          <img src="assets/images/AmbisyonNatin2040_about.png" alt="Ambisyon Natin 2040" loading="lazy">
           <div class="play-btn-center"><i class="fas fa-play"></i></div>
           <div class="gallery-overlay">
             <div class="overlay-content">
@@ -381,20 +535,175 @@
     </div>
   </section>
 
+  <!-- ===== TESTIMONIALS SECTION ===== -->
+  <section id="testimonials" class="section-padding">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Testimonials <span class="count">// What They Say</span></h2>
+        <span class="section-note">Reviews &amp; feedback from collaborators</span>
+      </div>
+
+      <div class="testimonials-grid">
+
+        <!-- Placeholder 1 -->
+        <div class="testi-card testi-placeholder reveal">
+          <div class="testi-placeholder-inner">
+            <div class="testi-avatar-placeholder"><i class="fas fa-user"></i></div>
+            <div class="testi-lines">
+              <div class="testi-quote-icon"><i class="fas fa-quote-left"></i></div>
+              <p class="testi-text">"Your testimonial or review will appear here. If we've worked together, feel free to reach out — I'd love to feature your feedback."</p>
+              <div class="testi-author">
+                <span class="testi-name">— Your Name</span>
+                <span class="testi-role">Role / Organization</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Placeholder 2 -->
+        <div class="testi-card testi-placeholder reveal">
+          <div class="testi-placeholder-inner">
+            <div class="testi-avatar-placeholder"><i class="fas fa-user"></i></div>
+            <div class="testi-lines">
+              <div class="testi-quote-icon"><i class="fas fa-quote-left"></i></div>
+              <p class="testi-text">"Working with Jhon Lester was a seamless experience. His organizational skills and attention to detail made a real difference in how we managed our operations."</p>
+              <div class="testi-author">
+                <span class="testi-name">— Collaborator Name</span>
+                <span class="testi-role">Executive / Partner</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Placeholder 3 -->
+        <div class="testi-card testi-placeholder reveal">
+          <div class="testi-placeholder-inner">
+            <div class="testi-avatar-placeholder"><i class="fas fa-user"></i></div>
+            <div class="testi-lines">
+              <div class="testi-quote-icon"><i class="fas fa-quote-left"></i></div>
+              <p class="testi-text">"Reliable, proactive, and always one step ahead. Exactly what you want in a virtual assistant."</p>
+              <div class="testi-author">
+                <span class="testi-name">— Client Name</span>
+                <span class="testi-role">Business Owner</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="testi-cta reveal">Worked with me? <a href="mailto:ybanezlester250@gmail.com" class="link-arrow">Send your testimonial &nearr;</a></p>
+    </div>
+  </section>
+
+  <!-- ===== CASE STUDY ===== -->
+  <section id="case-study" class="section-padding">
+    <div class="container">
+      <div class="section-header">
+        <h2>Case Study <span class="count">// In Action</span></h2>
+      </div>
+      <div class="case-card">
+        <div class="case-badge">Real Work Sample</div>
+        <h3 class="case-title">Structuring an Executive's Full Work Week</h3>
+        <p class="case-subtitle">Calendar Management &nbsp;&middot;&nbsp; Google Calendar &nbsp;&middot;&nbsp; Executive Support</p>
+        <div class="case-flow">
+          <div class="case-step">
+            <div class="case-step-icon"><i class="fas fa-exclamation-triangle"></i></div>
+            <div class="case-step-label">Problem</div>
+            <p>An executive's week had no clear structure &mdash; overlapping commitments, no buffer time, and meetings without context or prep materials.</p>
+          </div>
+          <div class="case-arrow"><i class="fas fa-arrow-right"></i></div>
+          <div class="case-step">
+            <div class="case-step-icon"><i class="fas fa-cogs"></i></div>
+            <div class="case-step-label">Action</div>
+            <p>Built a color-coded weekly calendar with deep work blocks, time buffers, structured 1:1s, and detailed event descriptions for every meeting.</p>
+          </div>
+          <div class="case-arrow"><i class="fas fa-arrow-right"></i></div>
+          <div class="case-step">
+            <div class="case-step-icon"><i class="fas fa-chart-line"></i></div>
+            <div class="case-step-label">Result</div>
+            <p>A complete, organized week with zero conflicts, every meeting context-ready, and protected time for focused work and personal recovery.</p>
+          </div>
+        </div>
+        <a href="#va-works" class="github-btn" style="width:fit-content;margin-top:10px;">
+          <i class="fas fa-calendar-alt"></i> View the Sample Work
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section id="faq" class="section-padding">
+    <div class="container">
+      <div class="section-header">
+        <h2>FAQ <span class="count">// Common Questions</span></h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)"><span>What time zone are you in?</span><i class="fas fa-plus faq-icon"></i></button>
+          <div class="faq-a"><p>I'm based in the Philippines and operate in Philippine Time (GMT+8). I'm flexible and can adjust my schedule to accommodate clients in different time zones for regular check-ins and meetings.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)"><span>Are you available for part-time work?</span><i class="fas fa-plus faq-icon"></i></button>
+          <div class="faq-a"><p>Yes! I'm open to both part-time and full-time arrangements. Whether you need 10 hours a week or 40, I can structure a package that works for your needs.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)"><span>What tools do you work with?</span><i class="fas fa-plus faq-icon"></i></button>
+          <div class="faq-a"><p>I'm proficient in Google Suite, Microsoft Office, Notion, Trello, Canva, Meta Business Suite, and Zoom. I'm also a quick learner and can adapt to tools specific to your workflow.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)"><span>What is your hourly rate?</span><i class="fas fa-plus faq-icon"></i></button>
+          <div class="faq-a"><p>My rate is <strong>$5&ndash;$6 per hour</strong>, depending on the scope and complexity of work. For ongoing retainer arrangements, I'm open to discussing a monthly package at a preferred rate.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)"><span>How do we communicate day-to-day?</span><i class="fas fa-plus faq-icon"></i></button>
+          <div class="faq-a"><p>I'm comfortable using any platform you prefer &mdash; Slack, WhatsApp, email, or Zoom. I provide end-of-day updates and am proactive about flagging anything that needs your attention.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)"><span>How do I get started?</span><i class="fas fa-plus faq-icon"></i></button>
+          <div class="faq-a"><p>Simply send me a message using the contact form below or email me directly. I'll respond within 24 hours to discuss your needs and how I can help.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <footer id="contact">
     <div class="container">
       <div class="footer-wrapper">
-        <h2>Let's make something <br> <span class="highlight">unforgettable.</span></h2>
-        <a href="mailto:ybanezlester250@gmail.com" class="huge-email">Get in touch &rarr;</a>
-
-        <div class="footer-socials">
-          <a href="https://www.facebook.com/lester.ybanez.925" target="_blank">Fb.</a>
-          <a href="https://www.instagram.com/_lstrn16/" target="_blank">Ig.</a>
+        <div class="footer-cols">
+          <div class="footer-left">
+            <h2>Let's make something <br> <span class="highlight">unforgettable.</span></h2>
+            <a href="mailto:ybanezlester250@gmail.com" class="huge-email">Get in touch &rarr;</a>
+            <div class="footer-socials">
+              <a href="https://www.facebook.com/lester.ybanez.925" target="_blank">Fb.</a>
+              <a href="https://www.instagram.com/_lstrn16/" target="_blank">Ig.</a>
+              <a href="https://www.linkedin.com/in/jhon-lester-yba%C3%B1ez-411a25223" target="_blank">Li.</a>
+            </div>
+          </div>
+          <div class="footer-right">
+            <form id="contactForm" action="https://formspree.io/f/mqpkljkw" method="POST" class="contact-form">
+              <div class="form-group">
+                <label for="cf-name">Your Name</label>
+                <input type="text" id="cf-name" name="name" placeholder="John Smith" required>
+              </div>
+              <div class="form-group">
+                <label for="cf-email">Email Address</label>
+                <input type="email" id="cf-email" name="email" placeholder="you@company.com" required>
+              </div>
+              <div class="form-group">
+                <label for="cf-message">Message</label>
+                <textarea id="cf-message" name="message" placeholder="Tell me about your needs..." rows="4" required></textarea>
+              </div>
+              <button type="submit" class="form-submit" id="submit-btn">
+                <span>Send Message</span> <i class="fas fa-paper-plane"></i>
+              </button>
+              <p class="form-success" id="form-success">&#10003; Message sent! I'll reply within 24 hours.</p>
+            </form>
+          </div>
         </div>
-
         <div class="copyright">
-          <p>© 2026 Jhon Lester Ybanez</p>
-          <p>Designed & Built by Jhon Lester Ybanez</p>
+          <p>&copy; 2026 Jhon Lester Ybanez</p>
+          <p>Designed &amp; Built by Jhon Lester Ybanez</p>
         </div>
       </div>
     </div>
@@ -477,6 +786,146 @@
         closeModal();
       }
     }
+
+    // ── Loading Screen ──────────────────────────────────
+    window.addEventListener('load', () => {
+      const loader = document.getElementById('loader');
+      setTimeout(() => {
+        loader.classList.add('loader-out');
+        setTimeout(() => { loader.style.display = 'none'; }, 700);
+      }, 500);
+    });
+
+    // ── Custom Cursor ────────────────────────────────────
+    const cursor = document.getElementById('cursor');
+    const cursorRing = document.getElementById('cursor-ring');
+    let ringX = 0, ringY = 0, dotX = 0, dotY = 0;
+    document.addEventListener('mousemove', e => {
+      dotX = e.clientX; dotY = e.clientY;
+      cursor.style.left = dotX + 'px'; cursor.style.top = dotY + 'px';
+    });
+    (function animateRing() {
+      ringX += (dotX - ringX) * 0.12; ringY += (dotY - ringY) * 0.12;
+      cursorRing.style.left = ringX + 'px'; cursorRing.style.top = ringY + 'px';
+      requestAnimationFrame(animateRing);
+    })();
+    document.querySelectorAll('a, button, .cert-link, .va-work-screenshots, .shot-tab, .faq-q, .service-card').forEach(el => {
+      el.addEventListener('mouseenter', () => { cursor.classList.add('cursor-hover'); cursorRing.classList.add('cursor-hover'); });
+      el.addEventListener('mouseleave', () => { cursor.classList.remove('cursor-hover'); cursorRing.classList.remove('cursor-hover'); });
+    });
+
+    // ── Dark / Light Mode ────────────────────────────────
+    const themeToggle = document.getElementById('theme-toggle');
+    const htmlEl = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') {
+      htmlEl.classList.add('light-mode');
+      themeToggle.querySelector('i').className = 'fas fa-moon';
+    }
+    themeToggle.addEventListener('click', () => {
+      htmlEl.classList.toggle('light-mode');
+      const isLight = htmlEl.classList.contains('light-mode');
+      themeToggle.querySelector('i').className = isLight ? 'fas fa-moon' : 'fas fa-sun';
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    });
+
+    // ── Typewriter ────────────────────────────────────────
+    const roles = ['Virtual Executive Assistant', 'Digital Operations & Admin', 'IT & Multimedia Specialist'];
+    let roleIdx = 0, charIdx = 0, deleting = false;
+    const twEl = document.getElementById('typewriter');
+    if (twEl) {
+      (function typewrite() {
+        const current = roles[roleIdx];
+        twEl.textContent = deleting ? current.slice(0, --charIdx) : current.slice(0, ++charIdx);
+        if (!deleting && charIdx === current.length) { deleting = true; setTimeout(typewrite, 1800); return; }
+        if (deleting && charIdx === 0) { deleting = false; roleIdx = (roleIdx + 1) % roles.length; }
+        setTimeout(typewrite, deleting ? 45 : 80);
+      })();
+    }
+
+    // ── Skills Bars ───────────────────────────────────────
+    const skillBars = document.querySelectorAll('.skill-bar-fill');
+    const skillObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.width = entry.target.dataset.width + '%';
+          skillObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    skillBars.forEach(bar => { bar.style.width = '0%'; skillObserver.observe(bar); });
+
+    // ── FAQ Accordion ─────────────────────────────────────
+    function toggleFaq(btn) {
+      const item = btn.parentElement;
+      const answer = item.querySelector('.faq-a');
+      const icon = btn.querySelector('.faq-icon');
+      const isOpen = item.classList.contains('faq-open');
+      document.querySelectorAll('.faq-item.faq-open').forEach(el => {
+        el.classList.remove('faq-open');
+        el.querySelector('.faq-a').style.maxHeight = '0';
+        el.querySelector('.faq-icon').style.transform = 'rotate(0deg)';
+      });
+      if (!isOpen) {
+        item.classList.add('faq-open');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+        icon.style.transform = 'rotate(45deg)';
+      }
+    }
+
+    // ── Contact Form ──────────────────────────────────────
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+      contactForm.addEventListener('submit', async e => {
+        e.preventDefault();
+        const btn = document.getElementById('submit-btn');
+        const success = document.getElementById('form-success');
+        btn.innerHTML = '<span>Sending...</span> <i class="fas fa-spinner fa-spin"></i>';
+        btn.disabled = true;
+        try {
+          const res = await fetch(contactForm.action, {
+            method: 'POST', body: new FormData(contactForm),
+            headers: { 'Accept': 'application/json' }
+          });
+          if (res.ok) {
+            contactForm.reset();
+            success.style.display = 'block';
+            btn.innerHTML = '<span>Sent!</span> <i class="fas fa-check"></i>';
+            setTimeout(() => {
+              success.style.display = 'none';
+              btn.innerHTML = '<span>Send Message</span> <i class="fas fa-paper-plane"></i>';
+              btn.disabled = false;
+            }, 4000);
+          } else { throw new Error(); }
+        } catch {
+          btn.disabled = false;
+          btn.innerHTML = '<span>Try Again</span> <i class="fas fa-paper-plane"></i>';
+        }
+      });
+    }
+
+    // ── Back to Top ───────────────────────────────────────
+    const backTop = document.getElementById('back-top');
+    window.addEventListener('scroll', () => {
+      backTop && backTop.classList.toggle('btt-visible', window.scrollY > 400);
+    });
+    backTop && backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // ── Scroll Reveal ──────────────────────────────────────
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll(
+      '.section-header, .box, .exp-card, .project-card, .gallery-item, ' +
+      '.va-work-card, .testi-card, .service-card, .why-col, .case-step, .faq-item, .reveal'
+    ).forEach(el => {
+      el.classList.add('reveal');
+      revealObserver.observe(el);
+    });
   </script>
 
 </body>

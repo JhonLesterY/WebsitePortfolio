@@ -1,0 +1,10 @@
+﻿{
+  "name": "Jhon Lester Ybanez | Virtual Executive Assistant",
+  "short_name": "JLY Portfolio",
+  "description": "Portfolio of Jhon Lester Ybanez - Virtual Executive Assistant & IT Specialist",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#080808",
+  "theme_color": "#ff5500",
+  "icons": []
+}
