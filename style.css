@@ -93,6 +93,109 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 @keyframes pulse { 0% {transform: scale(1); opacity: 1;} 100% {transform: scale(2.5); opacity: 0;} }
 .mono-text { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; }
 
+/* ── Availability Card (Bento) ─────────────────────── */
+.availability-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 14px;
+    background: linear-gradient(145deg, rgba(0,200,83,0.04), rgba(8,8,8,0.5));
+    border-color: rgba(0, 200, 83, 0.2) !important;
+    position: relative;
+    overflow: hidden;
+}
+.availability-card::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 140px; height: 140px;
+    background: radial-gradient(circle, rgba(0,200,83,0.12), transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+.availability-card:hover {
+    border-color: rgba(0, 200, 83, 0.5) !important;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 200, 83, 0.08);
+}
+.avail-card-tag {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    color: #00c853;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+.avail-card-pulse-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.avail-card-dot {
+    width: 10px; height: 10px;
+    background: #00c853;
+    border-radius: 50%;
+    flex-shrink: 0;
+    box-shadow: 0 0 10px #00c853;
+    animation: availPulse 2s ease-in-out infinite;
+}
+@keyframes availPulse {
+    0%, 100% { box-shadow: 0 0 6px #00c853; transform: scale(1); }
+    50% { box-shadow: 0 0 18px #00c853, 0 0 30px rgba(0,200,83,0.3); transform: scale(1.15); }
+}
+.avail-card-status {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #00c853;
+    letter-spacing: -0.3px;
+}
+.avail-card-details {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    flex-grow: 1;
+}
+.avail-card-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--text-muted);
+}
+.avail-card-item i {
+    color: #00c853;
+    width: 14px;
+    text-align: center;
+    font-size: 0.75rem;
+    flex-shrink: 0;
+}
+.avail-card-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #00c853;
+    color: #080808;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 10px 18px;
+    border-radius: 30px;
+    transition: 0.3s;
+    text-decoration: none;
+    margin-top: auto;
+}
+.avail-card-cta:hover {
+    background: #00e65c;
+    transform: translateX(4px);
+    box-shadow: 0 4px 20px rgba(0,200,83,0.35);
+}
+.avail-card-cta i { transition: transform 0.3s; }
+.avail-card-cta:hover i { transform: translateX(4px); }
+
+
 /* --- 5. CERTIFICATE SECTION & MODAL --- */
 .box-wide { grid-column: span 2; }
 .cert-list { display: flex; flex-direction: column; gap: 10px; margin-top: 15px; }
@@ -723,8 +826,13 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 }
 
 /* ── Skills ───────────────────────────────────────── */
-.skills-layout { display: grid; grid-template-columns: 1fr 300px; gap: 30px; margin-top: 20px; align-items: start; }
-.skills-bars { display: flex; flex-direction: column; gap: 20px; }
+.skills-layout { display: grid; grid-template-columns: 1fr 300px; gap: 30px; margin-top: 20px; align-items: stretch; }
+.skills-bars {
+    display: flex; flex-direction: column; gap: 20px;
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-radius: 20px; padding: 28px; backdrop-filter: blur(10px);
+    justify-content: center;
+}
 .skill-row { display: grid; grid-template-columns: 200px 1fr 40px; align-items: center; gap: 14px; }
 .skill-label { font-size: 0.88rem; display: flex; align-items: center; gap: 8px; }
 .skill-label i { color: var(--accent); width: 16px; text-align: center; }
@@ -746,6 +854,47 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 .avail-details div { font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); display: flex; align-items: center; gap: 8px; }
 .avail-details i { color: var(--accent); width: 14px; }
 .avail-rate { font-size: 1.2rem; font-weight: 800; color: var(--accent); margin-top: 10px; font-family: var(--font-mono); }
+
+/* ── Quick Stats Card ─────────────────────────────── */
+.quick-stats-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 24px;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transition: 0.3s;
+}
+.quick-stats-card:hover { border-color: rgba(255,85,0,0.3); }
+.qs-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+.qs-value {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--accent);
+    font-family: var(--font-mono);
+    letter-spacing: -0.5px;
+}
+.qs-label {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: right;
+}
+.qs-divider {
+    height: 1px;
+    background: var(--border);
+    width: 100%;
+}
+
 
 /* ── Case Study ───────────────────────────────────── */
 .case-card {
