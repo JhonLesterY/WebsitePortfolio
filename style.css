@@ -441,6 +441,10 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
   margin-top: 10px;
 }
 
+#va-works .works-bento {
+  grid-template-columns: repeat(3, 1fr);
+}
+
 .works-card {
   position: relative;
   border-radius: 24px;
@@ -1454,19 +1458,23 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 
 /* --- 11. TESTIMONIALS --- */
 .testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    justify-content: center;
     gap: 20px;
     margin-top: 20px;
+    flex-wrap: wrap;
 }
 
 .testi-card {
     background: var(--card-bg);
     border: 1px solid var(--border);
     border-radius: 24px;
-    padding: 30px;
+    padding: 32px 36px;
     transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     backdrop-filter: blur(10px);
+    flex: 1 1 450px;
+    max-width: 560px;
+    width: 100%;
 }
 
 .testi-card:hover {
