@@ -29,6 +29,10 @@
   <!-- PWA -->
   <link rel="manifest" href="manifest.json">
 
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
   <link rel="stylesheet" href="style.css">
   <link
     href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
@@ -936,22 +940,97 @@
     });
     backTop && backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-    // ── Scroll Reveal ──────────────────────────────────────
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('revealed');
-          revealObserver.unobserve(entry.target);
-        }
+    // ── Scroll Reveal: CSS Transitions + IntersectionObserver ──────
+    // Pure CSS approach — 100% reliable. IntersectionObserver fires
+    // immediately for elements already in viewport, so nothing stays hidden.
+    (function initReveal() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            const delay = el.dataset.srDelay || 0;
+            if (delay > 0) {
+              setTimeout(() => el.classList.add('sr-show'), Number(delay));
+            } else {
+              el.classList.add('sr-show');
+            }
+            observer.unobserve(el);
+          }
+        });
+      }, { rootMargin: '0px 0px -30px 0px', threshold: 0.05 });
+
+      // Observe a group of elements with stagger delays
+      function revealGroup(selector, stepMs = 70, extraClass = '') {
+        document.querySelectorAll(selector).forEach((el, i) => {
+          el.classList.add('sr-hidden');
+          if (extraClass) el.classList.add(extraClass);
+          el.dataset.srDelay = i * stepMs;
+          observer.observe(el);
+        });
+      }
+
+      // Observe individual elements (no stagger)
+      function revealSingle(selector, extraClass = '') {
+        document.querySelectorAll(selector).forEach(el => {
+          el.classList.add('sr-hidden');
+          if (extraClass) el.classList.add(extraClass);
+          observer.observe(el);
+        });
+      }
+
+      revealSingle('.section-header');
+      revealGroup('.bento-grid .box', 70);
+      revealGroup('.exp-card', 80);
+      revealGroup('.service-card', 70);
+      revealGroup('#va-works .works-card', 60);
+      revealGroup('.project-card', 80);
+      revealGroup('#works .works-card', 60);
+      revealSingle('.tools-headline');
+      revealGroup('.tool-card', 65);
+      revealGroup('.testi-card', 80);
+      revealSingle('.footer-left');
+      revealSingle('.footer-right', 'sr-delay-1');
+      revealSingle('.why-cta');
+
+      // Why-Hire-Me: slide from sides
+      const wl = document.querySelector('.without-col');
+      const wr = document.querySelector('.with-col');
+      const wv = document.querySelector('.why-divider');
+      if (wl) { wl.classList.add('sr-hidden', 'sr-left');  observer.observe(wl); }
+      if (wr) { wr.classList.add('sr-hidden', 'sr-right'); observer.observe(wr); }
+      if (wv) { wv.classList.add('sr-hidden', 'sr-scale'); observer.observe(wv); }
+
+      // Tool pills: smooth cascade pop-in
+      const pillObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.querySelectorAll('.tool-pill').forEach((pill, i) => {
+              setTimeout(() => pill.classList.add('sr-pill-show'), i * 35 + 120);
+            });
+            pillObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.tool-card').forEach(c => {
+        c.querySelectorAll('.tool-pill').forEach(p => p.classList.add('sr-pill'));
+        pillObserver.observe(c);
       });
-    }, { threshold: 0.12 });
-    document.querySelectorAll(
-      '.section-header, .box, .exp-card, .project-card, .gallery-item, ' +
-      '.va-work-card, .testi-card, .service-card, .why-col, .case-step, .faq-item, .reveal'
-    ).forEach(el => {
-      el.classList.add('reveal');
-      revealObserver.observe(el);
+    })();
+
+    // ── GSAP parallax scrub on section headings only ────────────────
+    window.addEventListener('load', () => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // ── Section heading parallax (subtle scrub) only ──
+    gsap.utils.toArray('section .section-header h2').forEach(h2 => {
+      gsap.to(h2, {
+        yPercent: -10,
+        ease: 'none',
+        scrollTrigger: { trigger: h2.closest('section'), scrub: 1.5, start: 'top bottom', end: 'bottom top' }
+      });
     });
+    ScrollTrigger.refresh();
+    }); // end window.load
   </script>
 
 </body>

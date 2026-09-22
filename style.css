@@ -1730,3 +1730,36 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
     .skill-label { display: none; }
     .back-to-top { bottom: 20px; right: 20px; }
 }
+
+/* ── Scroll Reveal System (Smooth & Modern) ── */
+.sr-hidden {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+.sr-hidden.sr-left  { transform: translateX(-35px); }
+.sr-hidden.sr-right { transform: translateX(35px); }
+.sr-hidden.sr-scale { transform: scale(0.92); }
+
+.sr-hidden.sr-show {
+    opacity: 1;
+    transform: translateY(0) translateX(0) scale(1);
+}
+
+/* Stagger delay helper for single elements */
+.sr-hidden.sr-delay-1 { transition-delay: 120ms; }
+
+/* Tool pill smooth pop-in */
+.sr-pill {
+    opacity: 0;
+    transform: translateY(8px) scale(0.92);
+    transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+.sr-pill.sr-pill-show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
